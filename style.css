@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: rgba(202, 201, 196, 0.582);
+}
+.container{
+    background-color: darkgoldenrod;
+    width: 80vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(50%, 70%) 30%;
+    grid-template-rows: 11vh repeat(2, 1fr) 6vh ;   
+    grid-template-areas: "navegacion navegacion"
+                         "section footer"
+                         "section footer"
+                         "aside     aside";
+}
+nav{
+    padding: 13px;
+    grid-area: navegacion;
+    background-color: rgb(54, 97, 37);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+nav div:nth-child(2){
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+}
+nav div a{
+    flex: 1 1;
+    display: block;
+    font-size: 1.1rem;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(172, 31, 31);
+    text-decoration: none;
+    color: #fff;
+    transition: .2s all ease;
+}
+nav div a:hover{
+    background-color:rgb(246, 44, 44) ;
+}
+section{
+    grid-area: section;
+    background-color: #fff;
+    padding: 15px;
+}
+section h1{
+    text-align: center;
+    border-bottom: 2px solid #000;
+    margin: 12px 0;
+    padding: 3px ;
+}
+section  article{
+    margin: 20px 2px;
+}
+section article p{
+    text-align: justify;
+}
+article p::selection,
+article h2::selection{
+    background-color: #000;
+    color: #fff;
+}
+footer{
+    grid-area: footer;
+    background-color: #Fe8000;
+}
+footer h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+}
+footer .widjet{
+    margin: 10px auto;
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+    color: #fff;
+    background-color: rgb(255, 166, 0);
+}
+aside{
+    padding: 10px;
+    grid-area: aside;
+    background-color: rgb(55, 0, 255);
+}
+aside p{
+    color: #fff;
+    text-align: center;
+}
+@media screen and (max-width: 360px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-areas: "navegacion"
+                         "section"
+                         "section"
+                         "footer"
+                         "footer"
+                         "aside"; 
+        grid-template-rows: 14vh repeat(2, 1fr) 6vh;
+    }
+    footer{
+        height: 100%;
+    }
+    nav{
+        padding: 5px;
+    }
+    nav div:nth-child(1){
+        width: 100%;
+    }
+    nav div:nth-child(2){
+        width: 100%;
+    }
+}
